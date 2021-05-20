@@ -1,0 +1,42 @@
+<mat-card>
+  <h2>{{ acaoDescricao }}</h2>
+
+  <mat-form-field class="example-full-width">
+    <input [disabled]="contaCorrente.idContaConrrente" matInput placeholder="Código do Banco: "
+      [(ngModel)]="contaCorrente.codigoBanco">
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <input [disabled]="contaCorrente.idContaConrrente" matInput placeholder="Número da Conta: "
+      [(ngModel)]="contaCorrente.numeroDaConta">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input [disabled]="contaCorrente.idContaConrrente" matInput placeholder="Digito Verificador: "
+      [(ngModel)]="contaCorrente.digitoVerificador">
+  </mat-form-field>
+</mat-card>
+
+<br />
+
+<mat-card *ngIf="contaCorrente.idContaConrrente">
+  <mat-card><b>Saldo da Conta:</b> {{ contaCorrente.saldoDaConta | currency:'BRL' }}</mat-card>
+  <br />
+  <mat-card>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Valor operação: " [(ngModel)]="valorOperacao">
+    </mat-form-field>
+  </mat-card>
+</mat-card>
+
+<br />
+
+<button *ngIf="!contaCorrente.idContaConrrente" mat-raised-button color="success"
+  style="float: right; margin-left: 5px;" (click)="buscarSaldoCanta()">{{
+  acaoBotao }}</button>
+<button *ngIf="contaCorrente.idContaConrrente" mat-raised-button color="success" style="float: right; margin-left: 5px;"
+  (click)="realizarSaqueConta()">Realizar Saque</button>
+<button *ngIf="contaCorrente.idContaConrrente" mat-raised-button color="success" style="float: right; margin-left: 5px;"
+  (click)="realizarDepositoConta()">Realizar Deposito</button>
+<button mat-raised-button color="warn" style="float: right;" (click)="resetarPesquisa()">Resetar</button>
