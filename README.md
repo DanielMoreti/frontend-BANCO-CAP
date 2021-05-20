@@ -2,4 +2,4 @@
 
 Rodar comando npm install para instalar as dependencias
 
-Backend: https://github.com/DanielMoreti/backend-BANCO-CAP
+Back-end: https://github.com/DanielMoreti/backend-BANCO-CAP
